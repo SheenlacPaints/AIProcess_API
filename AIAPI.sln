@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIAPI", "AIAPI\AIAPI.csproj", "{AF954F29-0CAA-4147-8BEF-FC9A9F3C404E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF954F29-0CAA-4147-8BEF-FC9A9F3C404E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF954F29-0CAA-4147-8BEF-FC9A9F3C404E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF954F29-0CAA-4147-8BEF-FC9A9F3C404E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF954F29-0CAA-4147-8BEF-FC9A9F3C404E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {837ACA40-6959-497B-BCC7-1D28E7052791}
+	EndGlobalSection
+EndGlobal
