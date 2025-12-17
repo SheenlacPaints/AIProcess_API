@@ -192,4 +192,20 @@ namespace AIAPI.DTOs
         public string? Avg_quantity { get; set; }
 
     }
+
+
+    public class Customerlist
+    {
+        public List<CustomerDTO> Customer { get; set; }
+    }
+
+
+    public class CustomerDTO
+    {
+        public string? Customer_ID { get; set; }
+        public string? Customer_Name { get; set; }
+        public string? Customer_Phoneno { get; set; }
+       
+    }
+
 }

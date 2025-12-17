@@ -290,7 +290,7 @@ namespace AIAPI.Services
 
                     var detail = new SchemeDetails
                     {
-                        Seqno = reader["Seqno"]?.ToString() ?? "",
+                       
                         SchemeName = reader["Scheme_Name"]?.ToString() ?? "",
                         SchemeGroup = reader["Scheme_Group"]?.ToString() ?? "",
                         MinuminValue = reader["Minumin_Value"]?.ToString() ?? "",
@@ -320,7 +320,7 @@ namespace AIAPI.Services
                     {
                         x.Scheme.SchemeDocno,
                         x.Scheme.SchemeName,
-                        x.Scheme.Benifit_value
+                        x.Scheme.Purchase_Value
                     })
                     .Select(g =>
                     {
@@ -425,5 +425,58 @@ namespace AIAPI.Services
             }
 
         }
+ 
+       
+    
+        public async Task<List<CustomerDTO>> FetchCustomerDetailAsync(paramDTO model)
+        {
+            try
+            {
+                using var con = new SqlConnection(_config.GetConnectionString("Database"));
+                using var cmd = new SqlCommand("sp_get_AI_Process_V1", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.filtervalue1 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue2", (object?)model.filtervalue2 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue3", (object?)model.filtervalue3 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.filtervalue4 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue5", (object?)model.filtervalue4 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue6", (object?)model.filtervalue6 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue7", (object?)model.filtervalue7 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue8", (object?)model.filtervalue8 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue9", (object?)model.filtervalue9 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue10", (object?)model.filtervalue10 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue11", (object?)model.filtervalue11 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue12", (object?)model.filtervalue12 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue13", (object?)model.filtervalue13 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue14", (object?)model.filtervalue14 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue15", (object?)model.filtervalue15 ?? DBNull.Value);
+
+                await con.OpenAsync();
+                var customerList = new List<CustomerDTO>();
+
+                using var reader = await cmd.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var customer = new CustomerDTO
+                    {
+                        Customer_ID = reader["CustomerID"]?.ToString() ?? "",
+                        Customer_Name = reader["customername"]?.ToString() ?? "",
+                        Customer_Phoneno = reader["cust_phone_no"]?.ToString() ?? ""
+                    };
+                    customerList.Add(customer);
+                }
+
+                return customerList;
+            }
+            catch (Exception ex)
+            {
+ 
+                throw;
+            }
+        }
     }
-}
+    }
+

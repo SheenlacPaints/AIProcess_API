@@ -236,5 +236,32 @@ namespace AIAPI.Controllers
 
 
 
+
+        [Authorize]
+        [HttpPost]
+        [Route("FetchCustomerDetails")]
+        public async Task<IActionResult> FetchCustomerDetails([FromBody] paramDTO model)
+        {
+            try
+            {
+                var username = User.FindFirst("username")?.Value;
+
+                if (string.IsNullOrWhiteSpace(username))
+                {
+                    return StatusCode(401, new APIResponse
+                    {
+                        status = 401,
+                        statusText = "Username claim missing in token"
+                    });
+                }
+
+                var result = await _InternalService.FetchCustomerDetailAsync(model);
+                return Ok(result);
+            }
+            catch
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }
