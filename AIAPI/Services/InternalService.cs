@@ -7,6 +7,7 @@ using Microsoft.Extensions.Options;
 using AIAPI.DTOs;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using System;
 namespace AIAPI.Services
 {
     public class InternalService : IInternalService
@@ -151,7 +152,7 @@ namespace AIAPI.Services
 
 
 
-        public async Task<List<OrderDTO>> newGetAllProcessmetaAsync(paramDTO model)
+        public async Task<List<OrderDTO>> GetAllPurchasehistorymetaAsync(LoginDTO model)
 
         {
             try
@@ -162,21 +163,21 @@ namespace AIAPI.Services
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.filtervalue1 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue2", (object?)model.filtervalue2 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue3", (object?)model.filtervalue3 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.filtervalue4 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.EmpId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue2", "");
+                cmd.Parameters.AddWithValue("@FilterValue3", "Grid2");
+                cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.PhoneNumber ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@FilterValue5", "1");
-                cmd.Parameters.AddWithValue("@FilterValue6", (object?)model.filtervalue6 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue7", (object?)model.filtervalue7 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue8", (object?)model.filtervalue8 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue9", (object?)model.filtervalue9 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue10", (object?)model.filtervalue10 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue11", (object?)model.filtervalue11 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue12", (object?)model.filtervalue12 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue13", (object?)model.filtervalue13 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue14", (object?)model.filtervalue14 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue15", (object?)model.filtervalue15 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue6", "");
+                cmd.Parameters.AddWithValue("@FilterValue7", "");
+                cmd.Parameters.AddWithValue("@FilterValue8", "");
+                cmd.Parameters.AddWithValue("@FilterValue9", "");
+                cmd.Parameters.AddWithValue("@FilterValue10", "");
+                cmd.Parameters.AddWithValue("@FilterValue11", "");
+                cmd.Parameters.AddWithValue("@FilterValue12", "");
+                cmd.Parameters.AddWithValue("@FilterValue13", "");
+                cmd.Parameters.AddWithValue("@FilterValue14", "");
+                cmd.Parameters.AddWithValue("@FilterValue15", "");
 
                 await con.OpenAsync();
 
@@ -246,7 +247,7 @@ namespace AIAPI.Services
             }
         }
 
-        public async Task<List<SchemeDTO>> GetAllSchemeProcessmetaAsync(paramDTO model)
+        public async Task<List<SchemeDTO>> GetAllSchemeProcessmetaAsync(LoginDTO model)
         {
             try
             {
@@ -256,21 +257,21 @@ namespace AIAPI.Services
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.filtervalue1 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue2", (object?)model.filtervalue2 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue3", (object?)model.filtervalue3 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.filtervalue4 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.EmpId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue2", "");
+                cmd.Parameters.AddWithValue("@FilterValue3", "Grid2");
+                cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.PhoneNumber ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@FilterValue5", "2");
-                cmd.Parameters.AddWithValue("@FilterValue6", (object?)model.filtervalue6 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue7", (object?)model.filtervalue7 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue8", (object?)model.filtervalue8 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue9", (object?)model.filtervalue9 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue10", (object?)model.filtervalue10 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue11", (object?)model.filtervalue11 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue12", (object?)model.filtervalue12 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue13", (object?)model.filtervalue13 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue14", (object?)model.filtervalue14 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue15", (object?)model.filtervalue15 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue6", "");
+                cmd.Parameters.AddWithValue("@FilterValue7", "");
+                cmd.Parameters.AddWithValue("@FilterValue8", "");
+                cmd.Parameters.AddWithValue("@FilterValue9", "");
+                cmd.Parameters.AddWithValue("@FilterValue10","");
+                cmd.Parameters.AddWithValue("@FilterValue11","");
+                cmd.Parameters.AddWithValue("@FilterValue12","");
+                cmd.Parameters.AddWithValue("@FilterValue13","");
+                cmd.Parameters.AddWithValue("@FilterValue14","");
+                cmd.Parameters.AddWithValue("@FilterValue15","");
 
                 await con.OpenAsync();
 
@@ -338,9 +339,7 @@ namespace AIAPI.Services
             }
         }
 
-
-
-        public async Task<List<purchaselist>> GetAllPurchaseProcessmetaAsync(paramDTO model)
+        public async Task<List<purchaselist>> GetAllPurchaseProcessmetaAsync(LoginDTO model)
         {
             {
                 try
@@ -351,21 +350,21 @@ namespace AIAPI.Services
                         CommandType = CommandType.StoredProcedure
                     };
 
-                    cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.filtervalue1 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue2", (object?)model.filtervalue2 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue3", (object?)model.filtervalue3 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.filtervalue4 ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.EmpId ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FilterValue2", "");
+                    cmd.Parameters.AddWithValue("@FilterValue3", "Grid2");
+                    cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.PhoneNumber ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@FilterValue5", "3");
-                    cmd.Parameters.AddWithValue("@FilterValue6", (object?)model.filtervalue6 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue7", (object?)model.filtervalue7 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue8", (object?)model.filtervalue8 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue9", (object?)model.filtervalue9 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue10", (object?)model.filtervalue10 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue11", (object?)model.filtervalue11 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue12", (object?)model.filtervalue12 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue13", (object?)model.filtervalue13 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue14", (object?)model.filtervalue14 ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@FilterValue15", (object?)model.filtervalue15 ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FilterValue6", "");
+                    cmd.Parameters.AddWithValue("@FilterValue7", "" );
+                    cmd.Parameters.AddWithValue("@FilterValue8", "");
+                    cmd.Parameters.AddWithValue("@FilterValue9", "");
+                    cmd.Parameters.AddWithValue("@FilterValue10","");
+                    cmd.Parameters.AddWithValue("@FilterValue11","");
+                    cmd.Parameters.AddWithValue("@FilterValue12","");
+                    cmd.Parameters.AddWithValue("@FilterValue13","");
+                    cmd.Parameters.AddWithValue("@FilterValue14","");
+                    cmd.Parameters.AddWithValue("@FilterValue15","");
 
                     await con.OpenAsync();
 
@@ -426,9 +425,8 @@ namespace AIAPI.Services
 
         }
  
-       
-    
-        public async Task<List<CustomerDTO>> FetchCustomerDetailAsync(paramDTO model)
+      
+        public async Task<List<CustomerDTO>> FetchCustomerDetailAsync(string username)
         {
             try
             {
@@ -438,21 +436,21 @@ namespace AIAPI.Services
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@FilterValue1", (object?)model.filtervalue1 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue2", (object?)model.filtervalue2 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue3", (object?)model.filtervalue3 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue4", (object?)model.filtervalue4 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue5", (object?)model.filtervalue4 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue6", (object?)model.filtervalue6 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue7", (object?)model.filtervalue7 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue8", (object?)model.filtervalue8 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue9", (object?)model.filtervalue9 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue10", (object?)model.filtervalue10 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue11", (object?)model.filtervalue11 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue12", (object?)model.filtervalue12 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue13", (object?)model.filtervalue13 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue14", (object?)model.filtervalue14 ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FilterValue15", (object?)model.filtervalue15 ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FilterValue1", username);
+                cmd.Parameters.AddWithValue("@FilterValue2", "");
+                cmd.Parameters.AddWithValue("@FilterValue3", "Customer_Fetch");
+                cmd.Parameters.AddWithValue("@FilterValue4", "");
+                cmd.Parameters.AddWithValue("@FilterValue5", "");
+                cmd.Parameters.AddWithValue("@FilterValue6", "");
+                cmd.Parameters.AddWithValue("@FilterValue7", "");
+                cmd.Parameters.AddWithValue("@FilterValue8", "");
+                cmd.Parameters.AddWithValue("@FilterValue9", "");
+                cmd.Parameters.AddWithValue("@FilterValue10", "");
+                cmd.Parameters.AddWithValue("@FilterValue11", "");
+                cmd.Parameters.AddWithValue("@FilterValue12", "");
+                cmd.Parameters.AddWithValue("@FilterValue13", "");
+                cmd.Parameters.AddWithValue("@FilterValue14", "");
+                cmd.Parameters.AddWithValue("@FilterValue15", "");
 
                 await con.OpenAsync();
                 var customerList = new List<CustomerDTO>();

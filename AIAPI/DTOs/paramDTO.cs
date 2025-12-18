@@ -21,5 +21,12 @@
 
 
 
+    public class LoginDTO
+    {
+        public string EmpId { get; set; }
+        public string PhoneNumber { get; set; }
+       
+    }
+
 
 }

@@ -71,9 +71,6 @@ namespace AIAPI.DTOs
         [JsonProperty("Status OF Order")]
         public string? StatusOfOrder { get; set; }
 
-        [JsonProperty("Customer ID")]
-        public string? CustomerID { get; set; }
-
         public string? Mobileno { get; set; }
 
         [JsonProperty("Invoiced_Quantity")]
@@ -139,7 +136,7 @@ namespace AIAPI.DTOs
 
     public class SchemeDetails
     {
-        public string? Seqno { get; set; }
+        
         public string? SchemeName { get; set; }
         public string? SchemeGroup { get; set; }
         public string? MinuminValue { get; set; }

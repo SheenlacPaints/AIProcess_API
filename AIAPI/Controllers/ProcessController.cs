@@ -201,12 +201,21 @@ namespace AIAPI.Controllers
 
         [Authorize]
         [HttpPost]
-        [Route("GetAIProcess")]
-        public async Task<IActionResult> GetAIProcess([FromBody] paramDTO model)
+        [Route("FetchCustomerProcessData")]
+        public async Task<IActionResult> GetAIProcess([FromBody] LoginDTO model)
         {
             try
             {
                 var username = User.FindFirst("username")?.Value;
+
+                if (model == null || string.IsNullOrEmpty(model.EmpId) || string.IsNullOrEmpty(model.PhoneNumber))
+                {
+                    return StatusCode(400,new APIResponse
+                    {
+                        status = 400,
+                        statusText = "Employee ID and Phone Number are required and cannot be null."
+                    });
+                }
 
                 if (string.IsNullOrWhiteSpace(username))
                 {
@@ -217,7 +226,7 @@ namespace AIAPI.Controllers
                     });
                 }
 
-                var purchaseHistoryjson = await _InternalService.newGetAllProcessmetaAsync(model);
+                var purchaseHistoryjson = await _InternalService.GetAllPurchasehistorymetaAsync(model);
                 var schemeMasterjson = await _InternalService.GetAllSchemeProcessmetaAsync(model);
                 var FrequentPurchasedMasterjson = await _InternalService.GetAllPurchaseProcessmetaAsync(model);
 
@@ -240,7 +249,7 @@ namespace AIAPI.Controllers
         [Authorize]
         [HttpPost]
         [Route("FetchCustomerDetails")]
-        public async Task<IActionResult> FetchCustomerDetails([FromBody] paramDTO model)
+        public async Task<IActionResult> FetchCustomerDetails()
         {
             try
             {
@@ -255,7 +264,7 @@ namespace AIAPI.Controllers
                     });
                 }
 
-                var result = await _InternalService.FetchCustomerDetailAsync(model);
+                var result = await _InternalService.FetchCustomerDetailAsync(username);
                 return Ok(result);
             }
             catch
