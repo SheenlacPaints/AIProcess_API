@@ -197,8 +197,6 @@ namespace AIAPI.Controllers
             }
         }
 
-
-
         [Authorize]
         [HttpPost]
         [Route("FetchCustomerProcessData")]

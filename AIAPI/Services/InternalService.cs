@@ -286,7 +286,8 @@ namespace AIAPI.Services
                         SchemeName = reader["Scheme_Name"]?.ToString() ?? "",
                         Purchase_Value = reader["Base_Value"]?.ToString() ?? "",
                         Benifit_value = reader["Benifit_value"]?.ToString() ?? "",
-                        Ratio= reader["Ratio"]?.ToString() ?? ""
+                        Ratio= reader["Ratio"]?.ToString() ?? "",
+                        Priority_sequence = reader["Priority_sequence"]?.ToString() ?? ""
                     };
 
                     var detail = new SchemeDetails
@@ -308,8 +309,8 @@ namespace AIAPI.Services
                         CX = reader["CX"]?.ToString() ?? "",
                         CY = reader["CY"]?.ToString() ?? "",
                         DECO = reader["DECO"]?.ToString() ?? "",
-                        Benifit_value = reader["Benifit_value"]?.ToString() ?? ""
-
+                        Benifit_value = reader["Benifit_value"]?.ToString() ?? "",
+                        Priority_sequence = reader["Priority_sequence"]?.ToString() ?? ""                    
                     };
 
                     flatList.Add((Scheme, detail));

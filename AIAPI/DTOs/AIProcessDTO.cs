@@ -131,6 +131,7 @@ namespace AIAPI.DTOs
         public string? Purchase_Value { get; set; }
         public string? Benifit_value { get; set; }
         public string? Ratio { get; set; }
+        public string? Priority_sequence { get; set; }
         public List<SchemeDetails>? SchemeDetails { get; set; }
     }
 
@@ -154,7 +155,8 @@ namespace AIAPI.DTOs
         public string? CY { get; set; }
         public string? DECO { get; set; }
         public string? Benifit_value { get; set; }
-
+        public string? Priority_sequence { get; set; }
+        
     }
 
 
