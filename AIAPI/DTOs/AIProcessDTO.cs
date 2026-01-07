@@ -41,8 +41,15 @@ namespace AIAPI.DTOs
         [JsonProperty("Balance Discount To Be Invoiced")]
         public string? Balancediscountobeinvoiced { get; set; }
 
+        [JsonProperty("Potential")]
+        public string? Potential { get; set; }
+
+        [JsonProperty("Ratio")]
+        public string? Ratio { get; set; }
         [JsonProperty("Details")]
         public List<OrderDetails>? Order_Details { get; set; }
+
+
     }
 
 
@@ -90,6 +97,11 @@ namespace AIAPI.DTOs
 
         [JsonProperty("Cancelled Invoiced Number")]
         public string? CancelledInvoicedNumber { get; set; }
+        [JsonProperty("Potential")]
+        public string? Potential { get; set; }
+
+        [JsonProperty("Ratio")]
+        public string? Ratio { get; set; }
     }
 
 

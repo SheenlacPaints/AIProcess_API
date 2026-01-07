@@ -195,7 +195,9 @@ namespace AIAPI.Services
                         Totalinvoicesvalue = reader["Total_Invoiced_Value"]?.ToString() ?? "",
                         Discountinvoiced = reader["Discount_Invoiced"]?.ToString() ?? "",
                         Balancevaluetobeinvoiced = reader["Balance_Value_To_Be_Invoiced"]?.ToString() ?? "",
-                        Balancediscountobeinvoiced = reader["Balance_Discount_To_Be_Invoiced"]?.ToString() ?? ""
+                        Balancediscountobeinvoiced = reader["Balance_Discount_To_Be_Invoiced"]?.ToString() ?? "",
+                        Potential = reader["Potential"]?.ToString() ?? "",
+                        Ratio = reader["Ratio"]?.ToString() ?? ""
                     };
 
                     var detail = new OrderDetails
@@ -212,7 +214,9 @@ namespace AIAPI.Services
                         InvoicedNumber = reader["Invoiced_Number"]?.ToString() ?? "",
                         Cancelled_Quantity = reader["Cancelled_Quantity"]?.ToString() ?? "",
                         DiscountINCancelledInvocie = reader["Discount_IN_Cancelled_Invocie"]?.ToString() ?? "",
-                        CancelledInvoicedNumber = reader["Cancelled_Invoiced_Number"]?.ToString() ?? ""
+                        CancelledInvoicedNumber = reader["Cancelled_Invoiced_Number"]?.ToString() ?? "",
+                        Potential = reader["Potential"]?.ToString() ?? "",
+                        Ratio = reader["Ratio"]?.ToString() ?? ""
                     };
 
                     flatList.Add((order, detail));
