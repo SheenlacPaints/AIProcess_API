@@ -46,6 +46,10 @@ namespace AIAPI.DTOs
 
         [JsonProperty("Ratio")]
         public string? Ratio { get; set; }
+      
+        [JsonProperty("Average_Scheme_percentage")]
+        public string? Average_Scheme_percentage { get; set; }
+
         [JsonProperty("Details")]
         public List<OrderDetails>? Order_Details { get; set; }
 
@@ -102,6 +106,9 @@ namespace AIAPI.DTOs
 
         [JsonProperty("Ratio")]
         public string? Ratio { get; set; }
+
+        [JsonProperty("Average_Scheme_percentage")]
+        public string? Average_Scheme_percentage { get; set; }
     }
 
 
